@@ -13,6 +13,14 @@ const menu: MenuModule = {
         path: '/page-b',
         name: '菜单2',
       },
+      {
+        path: 'test1',
+        name: '测试1',
+      },
+      {
+        path: 'test2',
+        name: '测试2',
+      },
     ],
   },
 };

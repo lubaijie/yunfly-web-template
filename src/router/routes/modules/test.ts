@@ -31,5 +31,21 @@ export default {
         title: '菜单2',
       },
     },
+    {
+      path: '/test1',
+      name: 'Test1',
+      component: () => import('/@/views/biz/test/Test1'),
+      meta: {
+        title: '测试1',
+      },
+    },
+    {
+      path: '/test2',
+      name: 'Test2',
+      component: () => import('/@/views/biz/test/Test2'),
+      meta: {
+        title: '测试2',
+      },
+    },
   ],
 } as AppRouteModule;

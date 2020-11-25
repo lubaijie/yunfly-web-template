@@ -15,7 +15,7 @@ const setting: ProjectConfig = {
   headerBgColor: '#ffffff',
 
   // sidebar menu bg color
-  menuBgColor: '#273352',
+  menuBgColor: '#001529',
 
   // Whether to show the configuration button
   showSettingButton: true,

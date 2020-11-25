@@ -1,58 +1,53 @@
 <template>
   <div class="login">
-    <div class="login-mask" />
-    <div class="login-form-wrap">
-      <div class="login-form mx-6">
-        <div class="login-form__content px-2 py-10">
-          <header>
-            <img :src="logo" class="mr-4" />
-            <h1>{{ title }}</h1>
-          </header>
+    <div class="login-form__content px-2 py-10">
+      <header>
+        <img :src="logo" class="mr-4" />
+        <h1>{{ title }}</h1>
+      </header>
 
-          <a-form class="mx-auto mt-10" :model="formData" :rules="formRules" ref="formRef">
-            <a-form-item name="account">
-              <a-input size="large" v-model:value="formData.account" placeholder="Username: vben" />
-            </a-form-item>
-            <a-form-item name="password">
-              <a-input-password
-                size="large"
-                visibilityToggle
-                v-model:value="formData.password"
-                placeholder="Password: 123456"
-              />
-            </a-form-item>
+      <a-form class="mx-auto mt-10" :model="formData" :rules="formRules" ref="formRef">
+        <a-form-item name="account">
+          <a-input size="large" v-model:value="formData.account" placeholder="Username: vben" />
+        </a-form-item>
+        <a-form-item name="password">
+          <a-input-password
+            size="large"
+            visibilityToggle
+            v-model:value="formData.password"
+            placeholder="Password: 123456"
+          />
+        </a-form-item>
 
-            <!-- <a-form-item name="verify" v-if="openLoginVerify">
-              <BasicDragVerify v-model:value="formData.verify" ref="verifyRef" />
-            </a-form-item> -->
-            <a-row>
-              <a-col :span="12">
-                <a-form-item>
-                  <!-- 未做逻辑，需要自行处理 -->
-                  <a-checkbox v-model:checked="autoLogin" size="small">自动登录</a-checkbox>
-                </a-form-item>
-              </a-col>
-              <a-col :span="12">
-                <a-form-item :style="{ 'text-align': 'right' }">
-                  <!-- 未做逻辑，需要自行处理 -->
-                  <a-button type="link" size="small">忘记密码</a-button>
-                </a-form-item>
-              </a-col>
-            </a-row>
+        <!-- <a-form-item name="verify" v-if="openLoginVerify">
+          <BasicDragVerify v-model:value="formData.verify" ref="verifyRef" />
+        </a-form-item> -->
+        <a-row>
+          <a-col :span="12">
             <a-form-item>
-              <a-button
-                type="primary"
-                size="large"
-                class="rounded-sm"
-                :block="true"
-                @click="login"
-                :loading="formState.loading"
-                >登录</a-button
-              >
+              <!-- 未做逻辑，需要自行处理 -->
+              <a-checkbox v-model:checked="autoLogin" size="small">自动登录</a-checkbox>
             </a-form-item>
-          </a-form>
-        </div>
-      </div>
+          </a-col>
+          <a-col :span="12">
+            <a-form-item :style="{ 'text-align': 'right' }">
+              <!-- 未做逻辑，需要自行处理 -->
+              <a-button type="link" size="small">忘记密码</a-button>
+            </a-form-item>
+          </a-col>
+        </a-row>
+        <a-form-item>
+          <a-button
+            type="primary"
+            size="large"
+            class="rounded-sm"
+            :block="true"
+            @click="login"
+            :loading="formState.loading"
+            >登录</a-button
+          >
+        </a-form-item>
+      </a-form>
     </div>
   </div>
 </template>
@@ -161,18 +156,9 @@
   .login {
     position: relative;
     height: 100vh;
-    background: url(../../../assets/images/login/login-bg.png) no-repeat;
+    background: url(/resource/img/background.svg) no-repeat;
+    background-color: #22254c;
     background-size: 100% 100%;
-
-    &-mask {
-      display: none;
-      height: 100%;
-      background: url(../../../assets/images/login/login-in.png) no-repeat;
-      background-position: 30% 30%;
-      background-size: 80% 80%;
-
-      .respond-to(xlarge, { display: block;});
-    }
 
     &-form {
       width: 520px;
@@ -183,25 +169,10 @@
       background-clip: padding-box;
       .respond-to(xlarge, { margin: 0 120px 0 50px});
 
-      &-wrap {
-        position: absolute;
-        top: 0;
-        right: 0;
-        display: flex;
-        width: 100%;
-        height: 90%;
-        justify-content: center;
-        align-items: center;
-        .respond-to(large, {
-          width: 600px;
-          right: calc(50% - 270px);
-          });
-        .respond-to(xlarge, { width: 540px; right:0});
-      }
-
       &__content {
         width: 100%;
         height: 100%;
+        padding-top: 10%;
         border: 1px solid #999;
         border-radius: 2px;
 
