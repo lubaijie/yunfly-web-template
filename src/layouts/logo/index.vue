@@ -1,6 +1,6 @@
 <template>
   <div class="app-logo anticon" :class="theme" @click="handleGoHome" :style="wrapStyle">
-    <img src="/@/assets/images/logo.png" />
+    <img src="/@/assets/images/logo.svg" />
     <div v-if="show" class="logo-title ml-2 ellipsis">{{ globSetting.title }}</div>
   </div>
 </template>

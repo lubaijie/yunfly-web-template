@@ -22,9 +22,14 @@ export interface RoleInfo {
  * @description: Login interface return value
  */
 export interface LoginResultModel {
-  userId: string | number;
+  userInfo: UserInfo;
   token: string;
-  role: RoleInfo;
+}
+
+export interface UserInfo {
+  dataScopes: Array<any>;
+  roles: Array<string>;
+  user: { [key: string]: any };
 }
 
 /**

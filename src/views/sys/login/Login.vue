@@ -6,7 +6,7 @@
         <h1>{{ title }}</h1>
       </header>
 
-      <a-form class="mx-auto mt-10" :model="formData" :rules="formRules" ref="formRef">
+      <a-form :model="formData" :rules="formRules" ref="formRef">
         <a-form-item name="account">
           <a-input size="large" v-model:value="formData.account" placeholder="Username: vben" />
         </a-form-item>
@@ -26,7 +26,9 @@
           <a-col :span="12">
             <a-form-item>
               <!-- 未做逻辑，需要自行处理 -->
-              <a-checkbox v-model:checked="autoLogin" size="small">自动登录</a-checkbox>
+              <a-checkbox v-model:checked="autoLogin" size="small" style="color: #fff;"
+                >自动登录</a-checkbox
+              >
             </a-form-item>
           </a-col>
           <a-col :span="12">
@@ -69,7 +71,7 @@
   // import { appStore } from '/@/store/modules/app';
   import { useMessage } from '/@/hooks/web/useMessage';
   import { useSetting } from '/@/hooks/core/useSetting';
-  import logo from '/@/assets/images/logo.png';
+  import logo from '/@/assets/images/logo.svg';
 
   export default defineComponent({
     components: {
@@ -88,7 +90,7 @@
       // const openLoginVerifyRef = computed(() => appStore.getProjectConfig.openLoginVerify);
 
       const formData = reactive({
-        account: 'vben',
+        account: 'admin',
         password: '123456',
         // verify: undefined,
       });
@@ -115,16 +117,16 @@
         formState.loading = true;
         try {
           const data = await form.validate();
-          const userInfo = await userStore.login(
+          const user = await userStore.login(
             toRaw({
               password: data.password,
               username: data.account,
             })
           );
-          if (userInfo) {
+          if (user) {
             notification.success({
               message: '登录成功',
-              description: `欢迎回来: ${userInfo.realName}`,
+              description: `欢迎回来: ${user.nickName}`,
               duration: 3,
             });
           }
@@ -170,11 +172,11 @@
       .respond-to(xlarge, { margin: 0 120px 0 50px});
 
       &__content {
-        width: 100%;
+        width: 350px;
         height: 100%;
         padding-top: 10%;
-        border: 1px solid #999;
-        border-radius: 2px;
+        margin: 0 auto;
+        color: #fff;
 
         header {
           display: flex;
@@ -183,19 +185,20 @@
 
           img {
             display: inline-block;
-            width: 48px;
+            width: 120px;
           }
 
           h1 {
             margin-bottom: 0;
-            font-size: 24px;
-            // color: @primary-color;
+            font-size: 32px;
+            font-weight: 800;
+            color: #fff;
             text-align: center;
           }
         }
 
         form {
-          width: 80%;
+          // width: 80%;
         }
       }
     }

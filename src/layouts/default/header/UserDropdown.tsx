@@ -20,9 +20,10 @@ export default defineComponent({
       return appStore.getProjectConfig;
     });
 
-    const getUserInfo = computed(() => {
-      const { realName = '', desc } = userStore.getUserInfoState || {};
-      return { realName, desc };
+    const getUser = computed(() => {
+      console.log(userStore.getUserState);
+      const { user } = userStore.getUserState || {};
+      return { user };
     });
 
     //  login out
@@ -50,7 +51,7 @@ export default defineComponent({
     }
 
     return () => {
-      const { realName } = unref(getUserInfo);
+      // const { nic } = unref(getUser);
       const {
         headerSetting: { showDoc },
       } = unref(getProjectConfigRef);
@@ -61,7 +62,7 @@ export default defineComponent({
               <section class={prefixCls}>
                 <img class={`${prefixCls}__header`} src={headerImg} />
                 <section class={`${prefixCls}__info`}>
-                  <section class={`${prefixCls}__name`}>{realName}</section>
+                  <section class={`${prefixCls}__name`}>{(unref(getUser) as any).nickName}</section>
                 </section>
               </section>
             ),

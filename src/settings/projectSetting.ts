@@ -4,6 +4,7 @@ import { MenuTypeEnum, MenuModeEnum, TriggerEnum } from '/@/enums/menuEnum';
 import { ContentEnum, PermissionModeEnum, ThemeEnum, RouterTransitionEnum } from '/@/enums/appEnum';
 import { primaryColor } from '../../build/config/lessModifyVars';
 import { isProdMode } from '/@/utils/env';
+import { truncate } from 'lodash-es';
 
 // ! You need to clear the browser cache after the change
 const setting: ProjectConfig = {
@@ -56,7 +57,7 @@ const setting: ProjectConfig = {
   // 菜单配置
   menuSetting: {
     // 菜单折叠
-    collapsed: false,
+    collapsed: truncate,
     // 折叠菜单时候是否显示菜单名
     collapsedShowTitle: false,
     // 是否可拖拽

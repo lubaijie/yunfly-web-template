@@ -5,9 +5,10 @@ import {
   GetUserInfoByUserIdParams,
   GetUserInfoByUserIdModel,
 } from './model/userModel';
+import { encrypt } from '/@/utils/rsaEncrypt';
 
 enum Api {
-  Login = '/login',
+  Login = '/auth/login',
   GetUserInfoById = '/getUserInfoById',
   GetPermCodeByUserId = '/getPermCodeByUserId',
 }
@@ -16,6 +17,7 @@ enum Api {
  * @description: user login api
  */
 export function loginApi(params: LoginParams) {
+  params.password = encrypt(params.password);
   return defHttp.request<LoginResultModel>(
     {
       url: Api.Login,
