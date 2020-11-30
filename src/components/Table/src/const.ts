@@ -3,7 +3,7 @@ import type { SorterResult } from './types/table';
 export const ROW_KEY = 'key';
 
 // 可选的每页显示条数;
-export const PAGE_SIZE_OPTIONS = ['10', '50', '80', '100'];
+export const PAGE_SIZE_OPTIONS = ['12', '15', '50', '80', '100'];
 
 // 每页显示条数
 export const PAGE_SIZE = ~~PAGE_SIZE_OPTIONS[0];

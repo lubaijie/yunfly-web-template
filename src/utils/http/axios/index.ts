@@ -20,6 +20,7 @@ import { formatRequestDate } from '/@/utils/dateUtil';
 import { setObjToUrlParams, deepMerge } from '/@/utils';
 import { errorStore } from '/@/store/modules/error';
 import { errorResult } from './const';
+import { fieldLineToHump } from '../../helper/modalHelper';
 
 const { globSetting } = useSetting();
 const prefix = globSetting.urlPrefix;
@@ -66,7 +67,8 @@ const transform: AxiosTransform = {
 
     // 接口请求成功，直接返回结果
     if (status === ResultEnum.SUCCESS) {
-      return result;
+      return fieldLineToHump(result);
+      // return result;
     }
     // 接口请求错误，统一提示错误信息
     if (status === ResultEnum.ERROR) {

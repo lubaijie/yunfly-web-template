@@ -64,3 +64,21 @@ export function unique<T = any>(arr: T[], key: string): T[] {
 export function es6Unique<T>(arr: T[]): T[] {
   return Array.from(new Set(arr));
 }
+
+/**
+ * @description 下划线改驼峰
+ * @param field
+ */
+export function toHump(field: string) {
+  return field.replace(/\_(\w)/g, ({}, letter) => {
+    return letter.toUpperCase();
+  });
+}
+
+/**
+ * @description 驼峰改下划线
+ * @param field
+ */
+export function toLine(field: string) {
+  return field.replace(/([A-Z])/g, '_$1').toLowerCase();
+}

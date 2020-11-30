@@ -1,11 +1,14 @@
 import { Button as AButton } from 'ant-design-vue';
 import { defineComponent, ref } from 'vue';
 import { BasicModal } from '/@/components/Modal';
+import { toHump } from '/@/utils';
 
 export default defineComponent({
   name: 'Test1',
   setup() {
     const visibleRef = ref<boolean>(false);
+
+    console.log(toHump('table_collation'));
 
     return () => (
       <div>

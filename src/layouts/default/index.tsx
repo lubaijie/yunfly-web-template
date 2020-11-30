@@ -14,7 +14,7 @@ import { useFullContent } from '/@/hooks/web/useFullContent';
 import LockPage from '/@/views/sys/lock/index.vue';
 import { registerGlobComp } from '/@/components/registerGlobComp';
 
-import { SIDE_BAR_MINI_WIDTH, SIDE_BAR_SHOW_TIT_MINI_WIDTH } from '/@/enums/appEnum';
+import { SIDE_BAR_MINI_WIDTH } from '/@/enums/appEnum';
 
 import './index.less';
 export default defineComponent({

@@ -21,9 +21,7 @@ export default defineComponent({
     });
 
     const getUser = computed(() => {
-      console.log(userStore.getUserState);
-      const { user } = userStore.getUserState || {};
-      return { user };
+      return userStore.getUserState || {};
     });
 
     //  login out

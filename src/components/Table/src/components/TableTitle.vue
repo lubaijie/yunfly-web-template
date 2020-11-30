@@ -1,5 +1,10 @@
 <template>
-  <BasicTitle class="basic-table-title" v-if="tableTitle" :helpMessage="helpMessage">
+  <BasicTitle
+    class="basic-table-title"
+    v-if="tableTitle"
+    :showSpan="true"
+    :helpMessage="helpMessage"
+  >
     {{ tableTitle }}
   </BasicTitle>
 </template>
